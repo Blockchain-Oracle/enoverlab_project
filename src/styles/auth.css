@@ -1,0 +1,86 @@
+/* Base styles */
+.cl-rootBox {
+    width: 100%;
+    height: 100dvh;
+}
+
+.cl-cardBox {
+    width: 100%;
+    height: 100%; 
+    border-radius: 42px 0 0 42px;
+}
+
+.cl-card {
+    padding: 0 7em;
+    height: 100%;
+    border-radius: 0;
+}
+
+.cl-footer .cl-footerAction {
+    padding: 30px;
+}
+
+.cl-footer .cl-internal-1dauvpw {
+    display: none;
+}
+
+button.cl-formButtonPrimary.cl-button::after {
+    border: 0;
+    outline: 0;
+}
+
+button.cl-formButtonPrimary.cl-button {
+    width: 100%;
+    background-color: #84C52A;
+}
+
+button.cl-formButtonPrimary.cl-button:hover {
+    background: #555;
+}
+
+.cl-internal-ttumny[data-variant="solid"][data-color="primary"] {
+    box-shadow: none;
+}
+
+/* Tablet responsiveness */
+@media (max-width: 768px) {
+    .cl-rootBox {
+        height: auto; /* Adjust if 100dvh causes layout issues */
+    }
+
+    .cl-cardBox {
+        border-radius: 20px 0 0 20px; /* Adjust for smaller screens */
+    }
+
+    .cl-card {
+        padding: 0 3em; /* Reduce padding for smaller screens */
+    }
+
+    .cl-footer .cl-footerAction {
+        padding: 20px; /* Adjust footer padding */
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .cl-rootBox {
+        height: auto; 
+    }
+
+    .cl-cardBox {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .cl-card {
+        padding: 0 1em; 
+    }
+
+    button.cl-formButtonPrimary.cl-button {
+        font-size: 0.9em; 
+        padding: 15px;
+    }
+
+    .cl-footer .cl-footerAction {
+        padding: 15px; 
+    }
+}
