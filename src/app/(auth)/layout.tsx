@@ -11,5 +11,9 @@ export const metadata: Metadata = {
 export default function AuthLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return <main>{children}</main>;
+  return (
+  <div className="bg-green h-auto w-dvw flex items-center"> 
+    {children}
+  </div> 
+);
 }

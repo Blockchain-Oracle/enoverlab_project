@@ -1,3 +1,8 @@
 export default function ContentPage() {
-  return <main>Content</main>;
+  return (
+    <main>
+      <h1>Content</h1>
+
+    </main>
+  );
 }
