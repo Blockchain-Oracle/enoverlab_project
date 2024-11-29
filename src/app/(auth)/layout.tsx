@@ -12,8 +12,6 @@ export default function AuthLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-  <div className="bg-green h-auto w-dvw flex items-center"> 
-    {children}
-  </div> 
-);
+    <div className="bg-green flex h-auto w-dvw items-center">{children}</div>
+  );
 }
