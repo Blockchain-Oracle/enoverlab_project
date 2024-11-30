@@ -1,8 +1,8 @@
 export default function MenuBuger() {
   return (
-    <div>
+    <button aria-label="Open Menu" className="p-2" type="button">
       <BugerIcon />
-    </div>
+    </button>
   );
 }
 
@@ -13,7 +13,7 @@ const BugerIcon = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="size-8 font-bold text-green hover:cursor-pointer hover:text-green/75"
+    className="h-8 w-8 text-green hover:cursor-pointer hover:text-green/75"
   >
     <path
       strokeLinecap="round"

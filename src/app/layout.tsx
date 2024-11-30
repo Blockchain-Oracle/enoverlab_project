@@ -17,8 +17,10 @@ export default function RootLayout({
   return (
     <ClerkProvider publishableKey={clerkKey}>
       <html lang="en" className={`${GeistSans.variable}`}>
-        <Header />
-        <body>{children}</body>
+        <body>
+          <Header />
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
