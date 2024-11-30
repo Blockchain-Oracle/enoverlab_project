@@ -1,5 +1,9 @@
-import Link from "next/link";
+import Hero from "./_components/Hero";
 
 export default function HomePage() {
-  return <></>;
+  return (
+    <>
+      <Hero />
+    </>
+  );
 }
