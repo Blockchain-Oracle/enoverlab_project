@@ -1,10 +1,9 @@
 "use client";
 
 import "@/styles/globals.css";
-import {
-  ClerkProvider,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import { GeistSans } from "geist/font/sans";
+import Header from "@/components/Header/Header";
 
 const clerkKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
@@ -18,9 +17,8 @@ export default function RootLayout({
   return (
     <ClerkProvider publishableKey={clerkKey}>
       <html lang="en" className={`${GeistSans.variable}`}>
-        <body>
-          {children}
-        </body>
+        <Header />
+        <body>{children}</body>
       </html>
     </ClerkProvider>
   );

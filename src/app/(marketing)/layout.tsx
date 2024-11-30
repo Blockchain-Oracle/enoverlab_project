@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-export default function AuthLayout({
+export default function MarketingLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return <div className="">{children}</div>;
