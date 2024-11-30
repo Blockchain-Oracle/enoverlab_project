@@ -24,7 +24,9 @@ export default function SideBarMenu() {
         <SheetContent side="top">
           <SheetHeader className="mb-6">
             <SheetTitle className="text-xl font-bold text-green">
-              Fresh Eats
+              <SheetClose asChild>
+                <Link href="/">Fresh Eats</Link>
+              </SheetClose>
             </SheetTitle>
           </SheetHeader>
 
