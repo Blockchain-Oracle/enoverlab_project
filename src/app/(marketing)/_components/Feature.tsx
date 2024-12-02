@@ -6,7 +6,6 @@ import FeatureCard from "./FeatureCard";
 import { FeatureCardProperties } from "./FeatureCard";
 import { CarouselFeature } from "./CarouselFeature";
 import NewsLetter from "./NewsLetter";
-import WhyChooseUs, { WhyChooseUsProperties } from "./WhyChooseUs";
 
 export default function Feature() {
   return (

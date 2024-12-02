@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Dock, DockIcon } from "@/components/ui/dock";
+import { Button } from "@/components/ui/button";
 
 type FeatureCardProps = {
   title: string;
@@ -101,15 +102,17 @@ export default function FeatureCard({
   type,
 }: FeatureCardProps) {
   return (
-    <Card className="overflow-hidden">
-      <div className="relative h-48 w-full">
+    <Card className="flex h-[450px] w-full flex-col overflow-hidden">
+      <div className="relative h-48 w-full flex-shrink-0">
         <Image src={image} alt={title} fill className="object-cover" />
       </div>
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+      <CardHeader className="flex-shrink-0">
+        <CardTitle className="line-clamp-1">{title}</CardTitle>
+        <CardDescription className="line-clamp-2">
+          {description}
+        </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex-shrink-0">
         <div className="flex items-center gap-2 text-muted-foreground">
           <Clock className="h-4 w-4 text-green" />
           <span className="text-sm">{time}</span>
@@ -118,19 +121,32 @@ export default function FeatureCard({
           <span className="text-sm">{type}</span>
         </div>
       </CardContent>
-      <CardFooter className="justify-end">
-        <div className="relative">
-          <Dock magnification={60} distance={100}>
-            <DockIcon className="bg-black/10 p-3 text-muted-foreground dark:bg-white/10">
-              <Share2 className="size-full text-green" />
+      <CardFooter className="mt-auto justify-around">
+        <div className="relative w-full">
+          <Dock
+            magnification={60}
+            distance={100}
+            className="w-full justify-center gap-x-7"
+          >
+            <DockIcon className="w-[100px] p-3 text-center text-muted-foreground">
+              <div className="flex items-center justify-center">
+                <Share2 className="h-6 w-6 text-green" />
+              </div>
+              <span className="text-sm">Share</span>
             </DockIcon>
-            <Separator orientation="vertical" />
-            <DockIcon className="bg-black/10 p-3 text-muted-foreground dark:bg-white/10">
-              <Edit2 className="size-full text-blue-500" />
+            <Separator orientation="vertical" className="h-12" />
+            <DockIcon className="w-[100px] p-3 text-center text-muted-foreground">
+              <div className="flex items-center justify-center">
+                <Edit2 className="h-6 w-6 text-blue-500" />
+              </div>
+              <span className="text-sm">Edit</span>
             </DockIcon>
-            <Separator orientation="vertical" />
-            <DockIcon className="bg-black/10 p-3 text-muted-foreground dark:bg-white/10">
-              <Trash2 className="size-full text-red-500" />
+            <Separator orientation="vertical" className="h-12" />
+            <DockIcon className="w-[100px] p-3 text-center text-muted-foreground">
+              <div className="flex items-center justify-center">
+                <Trash2 className="h-6 w-6 text-red-500" />
+              </div>
+              <span className="text-sm">Delete</span>
             </DockIcon>
           </Dock>
         </div>
