@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Auth",
+  title: "Fresh Eats | Authentication",
   description: "Auth",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
@@ -11,7 +11,5 @@ export const metadata: Metadata = {
 export default function AuthLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <div className="flex h-auto w-dvw items-center bg-green">{children}</div>
-  );
+  return <div className="h-auto w-dvw items-center bg-green">{children}</div>;
 }
