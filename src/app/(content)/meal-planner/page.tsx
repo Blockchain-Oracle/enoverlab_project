@@ -1,3 +1,11 @@
+import Hero from "./_component/Hero";
+import Nav from "./_component/Nav";
+
 export default function page() {
-  return <div>meal planner</div>;
+  return (
+    <>
+    <Nav/>
+    <Hero/>
+    </>
+  );
 }
