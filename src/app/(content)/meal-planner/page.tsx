@@ -4,8 +4,8 @@ import Nav from "./_component/Nav";
 export default function page() {
   return (
     <>
-    <Nav/>
-    <Hero/>
+      {/* <Nav/> */}
+      <Hero />
     </>
   );
 }

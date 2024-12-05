@@ -1,30 +1,30 @@
 export default function Categories() {
   const categories = [
-    { 
-      name: 'Vegetables', 
+    {
+      name: "Vegetables",
       count: 12,
-      image: '/images/grocery-list/vegetable.png'
+      image: "/Images/grocery-list/vegetable.png",
     },
-    {  
-      name: 'Fruits', 
+    {
+      name: "Fruits",
       count: 8,
-      image: '/images/grocery-list/fruit.png'
+      image: "/Images/grocery-list/fruit.png",
     },
-    { 
-      name: 'Meat', 
+    {
+      name: "Meat",
       count: 5,
-      image: '/images/grocery-list/bakery.png'
+      image: "/Images/grocery-list/bakery.png",
     },
-    { 
-      name: 'Fish', 
+    {
+      name: "Fish",
       count: 4,
-      image: '/images/grocery-list/drinks.png'
+      image: "/Images/grocery-list/drinks.png",
     },
-    { 
-      name: 'Dairy', 
+    {
+      name: "Dairy",
       count: 7,
-      image: '/images/grocery-list/drinks.png'
-    }
+      image: "/Images/grocery-list/drinks.png",
+    },
   ];
 
   return (
@@ -33,20 +33,22 @@ export default function Categories() {
         <h2 className="mb-8 text-2xl font-semibold">Categories</h2>
         <div className="grid grid-cols-5 gap-8">
           {categories.map((category) => (
-            <div 
+            <div
               key={category.name}
               className="group cursor-pointer rounded-[30px] bg-[#F8F9FB] p-6 transition-all hover:shadow-md"
             >
               <div className="mb-6 aspect-square h-48 overflow-hidden rounded-full bg-white p-6">
-                <img 
-                  src={category.image} 
+                <img
+                  src={category.image}
                   alt={category.name}
                   className="h-full w-full rounded-full object-cover"
                 />
               </div>
               <div className="text-center text-[#84C52A]">
                 <h3 className="mb-2 text-xl font-medium">{category.name}</h3>
-                <span className="text-base text-gray-500">{category.count} items</span>
+                <span className="text-base text-gray-500">
+                  {category.count} items
+                </span>
               </div>
             </div>
           ))}

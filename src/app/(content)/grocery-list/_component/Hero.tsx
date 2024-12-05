@@ -1,12 +1,12 @@
 export default function Hero() {
   return (
-    <section className="relative h-[400px] overflow-hidden">
+    <section className="relative mt-12 h-[400px] overflow-hidden">
       {/* Background Image with Overlay */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ 
-          backgroundImage: 'url("/images/grocery-list/Grocery list Hero.png")',
-          backgroundSize: '100% 100%'
+        style={{
+          backgroundImage: 'url("/Images/grocery-list/Grocery list Hero.png")',
+          backgroundSize: "100% 100%",
         }}
       >
         {/* Green Overlay */}
@@ -20,7 +20,8 @@ export default function Hero() {
             Create a Shopping list
           </h1>
           <p className="mb-8 max-w-2xl text-lg text-white">
-            Sign Up to create a grocery list from favourite recipes and order groceries
+            Sign Up to create a grocery list from favourite recipes and order
+            groceries
           </p>
         </div>
       </div>
