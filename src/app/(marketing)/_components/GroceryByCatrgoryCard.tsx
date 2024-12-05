@@ -10,23 +10,23 @@ export const GroceryByCategoryProperties: GroceryByCatrgoryCardProps[] = [
   {
     image: [
       "/Images/Grocery/image.png",
-      "/Images/Grocery/image.png",
-      "/Images/Grocery/image.png",
+      "/Images/Grocery/image-1.png",
+      "/Images/Grocery/image-2.png",
     ],
     title: "Fruits",
   },
   {
     image: [
-      "/Images/Grocery/image.png",
-      "/Images/Grocery/image.png",
-      "/Images/Grocery/image.png",
+      "/Images/Grocery/image-3.png",
+      "/Images/Grocery/image-4.png",
+      "/Images/Grocery/image-5.png",
     ],
     title: "Vegetables",
   },
   {
     image: [
-      "/Images/Grocery/image.png",
-      "/Images/Grocery/image.png",
+      "/Images/Grocery/image-5.png",
+      "/Images/Grocery/image-6.png",
       "/Images/Grocery/image.png",
     ],
     title: "Meat",
