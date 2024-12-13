@@ -1,75 +1,146 @@
-import { Star } from "lucide-react";
-import { ShoppingCart } from "lucide-react";
-import { ChevronRight } from "lucide-react";
+'use client';
+
+import { Star, ShoppingCart, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Dairy() {
-  const drinks = [
+  const dairyProducts = [
     {
       name: "Butter",
       description: "Lorem ipsum dolor sit consectetur adipiscing.",
       image: "/Images/grocery-list/butter.png",
       rating: 5,
+      price: "$4.99"
     },
     {
       name: "Youghurt",
       description: "Lorem ipsum dolor sit consectetur adipiscing.",
       image: "/Images/grocery-list/youghurt.png",
       rating: 5,
+      price: "$3.99"
     },
     {
       name: "Cheese",
       description: "Lorem ipsum dolor sit consectetur adipiscing.",
       image: "/Images/grocery-list/cheese.png",
       rating: 5,
+      price: "$5.99"
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
-    <div className="bg-[#F8F9FB] py-12">
+    <section className="bg-[#F8F9FB] py-8 sm:py-12">
       <div className="container mx-auto px-4">
-        <div className="mb-8 flex items-center justify-between">
-          <h2 className="text-2xl font-medium text-gray-700">Dairy</h2>
-          <button className="text-gray-600 hover:text-green">See more</button>
+        <div className="mb-6 sm:mb-8 flex items-center justify-between">
+          <h2 className="text-xl sm:text-2xl font-medium text-gray-700">
+            Dairy Products
+          </h2>
+          <button className="hidden sm:flex items-center gap-2 text-green hover:text-green/80 transition-colors">
+            See more
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
 
-        <div className="grid grid-cols-3 gap-8">
-          {drinks.map((item) => (
-            <div key={item.name} className="rounded-2xl bg-white p-4 shadow-sm">
-              <div className="relative mb-4 h-48 overflow-hidden rounded-xl">
-                <img
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
+        >
+          {dairyProducts.map((item) => (
+            <motion.div
+              key={item.name}
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+              className="rounded-2xl bg-white p-3 sm:p-4 shadow-sm hover:shadow-md 
+                transition-all duration-300"
+            >
+              <div className="relative mb-3 sm:mb-4 h-40 sm:h-48 overflow-hidden rounded-xl">
+                <motion.img
                   src={item.image}
                   alt={item.name}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transform transition-transform 
+                    duration-300 hover:scale-110"
+                  whileHover={{ scale: 1.05 }}
                 />
-              </div>
-
-              <div className="space-y-3">
-                <h3 className="text-lg font-medium text-[#84C52A]">
-                  {item.name}
-                </h3>
-                <p className="text-sm text-gray-500">{item.description}</p>
-
-                <div className="flex items-center justify-between">
-                  <button className="w-[250px] rounded-full bg-green py-2 text-white hover:bg-green/90">
-                    Shop Now
-                  </button>
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, index) => (
+                <div className="absolute top-2 right-2">
+                  <div className="flex items-center gap-1 bg-white/90 backdrop-blur-sm 
+                    px-2 py-1 rounded-full">
+                    {[...Array(item.rating)].map((_, index) => (
                       <Star
                         key={index}
-                        className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                        className="h-3 w-3 sm:h-4 sm:w-4 fill-yellow-400 text-yellow-400"
                       />
                     ))}
                   </div>
-                  <button className="flex items-center justify-center rounded-lg bg-[#FFC244] p-2 text-white">
-                    <ShoppingCart className="h-5 w-5" />
-                  </button>
                 </div>
               </div>
-            </div>
+
+              <div className="space-y-2 sm:space-y-3">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-base sm:text-lg font-medium text-green">
+                    {item.name}
+                  </h3>
+                  <span className="text-sm sm:text-base font-medium text-gray-900">
+                    {item.price}
+                  </span>
+                </div>
+
+                <p className="text-sm text-gray-500 line-clamp-2">
+                  {item.description}
+                </p>
+
+                <div className="flex items-center gap-2 pt-1">
+                  <motion.button
+                    whileTap={{ scale: 0.98 }}
+                    className="flex-1 rounded-full bg-green py-2.5 text-sm sm:text-base 
+                      text-white hover:bg-green/90 transition-colors"
+                  >
+                    Shop Now
+                  </motion.button>
+
+                  <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center justify-center rounded-lg bg-[#FFC244] 
+                      p-2 text-white hover:bg-[#ffb820] transition-colors"
+                  >
+                    <ShoppingCart className="h-5 w-5" />
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
           ))}
+        </motion.div>
+
+        {/* Mobile See More Button */}
+        <div className="mt-6 sm:hidden flex justify-center">
+          <button className="w-full max-w-xs py-3 text-green border border-green/20 
+            rounded-full hover:bg-green/5 transition-colors text-sm flex items-center 
+            justify-center gap-2"
+          >
+            See More Dairy Products
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
