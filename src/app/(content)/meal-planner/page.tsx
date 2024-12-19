@@ -1,11 +1,19 @@
-import Hero from "./_component/Hero";
-import Nav from "./_component/Nav";
+import Footer from '../grocery-list/_component/Footer';
+import Categories from './_component/Categories';
+import Explore from './_component/Explore';
+import Hero from './_component/Hero';
+import Search from './_component/Search';
+import Yourself from './_component/Yourself';
 
-export default function page() {
+export default function MealPlannerPage() {
   return (
-    <>
-      {/* <Nav/> */}
+    <main>
       <Hero />
-    </>
+      <Search />
+      <Categories />
+      <Yourself />
+      <Explore />
+      <Footer />
+    </main>
   );
 }

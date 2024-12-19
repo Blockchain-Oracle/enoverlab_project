@@ -52,10 +52,15 @@ export default function GroceryByCategories() {
                 />
               ))}
             </div>
-            <Button className="mt-12 bg-[#84C52A] px-12 py-4">View All</Button>
+            <Button className="mt-12 bg-[#84C52A] px-12 py-4">
+              View All
+            </Button>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+
+

@@ -12,9 +12,8 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Dock, DockIcon } from "@/components/ui/dock";
-import { Button } from "@/components/ui/button";
 
-type FeatureCardProps = {
+export type FeatureCardProps = {
   title: string;
   description: string;
   image: string;

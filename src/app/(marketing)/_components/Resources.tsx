@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Play } from "lucide-react";
+import { ResourceCardProperties } from "./ResourceCard";
+import ResourceCard from "./ResourceCard";
 
 export default function Resources() {
   return (
@@ -63,13 +65,26 @@ export default function Resources() {
           </DialogContent>
         </Dialog>
       </div>
-      <div className="flex flex-col">
-        <h3>Resources</h3>
-        <p>
-          Lorem Ipsum has been the industry's standard dummy text ever since the
-          1500s, when an unknown printer took a galley of type and scrambled it
-          to make a type specimen book.
+      <div className="mt-5 flex flex-col place-content-center">
+        <h2 className="text-center text-2xl font-bold text-[#84C52A] md:text-3xl">
+          Resources
+        </h2>
+        <p className="text-center text-base text-gray-600 md:text-lg">
+          Lorem Ipsum has been the industry&lsquo;s standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book.
         </p>
+
+        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
+          {ResourceCardProperties.map((resource, index) => (
+            <ResourceCard
+              key={index}
+              image={resource.image}
+              title={resource.title}
+              description={resource.description}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
