@@ -21,7 +21,7 @@ export type FeatureCardProps = {
   type: "ingredients" | "instructions" | "recipe";
 };
 
-export const FeatureCardProperties: FeatureCardProps[] = [
+export const featureCardProperties: FeatureCardProps[] = [
   {
     title: "Avocado Toast",
     description: "Fresh & Tangy egg Toast with cucumber, tomato, and avocado",

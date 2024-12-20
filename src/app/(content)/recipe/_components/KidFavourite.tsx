@@ -10,11 +10,15 @@ export default function KidFavourite() {
       <h1 className="mb-8 text-center text-3xl font-bold tracking-tight text-green">
         Kid Favourite Recipes
       </h1>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-5">
+      <div className="grid grid-cols-3 gap-4 md:grid-cols-4">
         {KidFavouriteProperties.map((recipe, index) => (
-          <Card key={index} className="p-4">
-            <RecipeButton name={recipe.name} className="h-full w-full" />
-          </Card>
+          // <Card key={index} className="p-4">
+          <RecipeButton
+            name={recipe.name}
+            className={`h-full w-full rounded-full ${recipe.className}`}
+            key={index}
+          />
+          // </Card>
         ))}
       </div>
 
@@ -27,9 +31,10 @@ export default function KidFavourite() {
   );
 }
 
-const KidFavouriteProperties: { name: string }[] = [
+const KidFavouriteProperties: { name: string; className?: string }[] = [
   {
     name: "Pancakes",
+    className: "bg-green",
   },
   {
     name: "Spaghetti",
@@ -88,6 +93,27 @@ const kidFavouriteFeatureCards: FeatureCardProps[] = [
   },
   {
     title: "Rainbow Pancakes",
+    description: "Colorful and fluffy pancakes perfect for breakfast",
+    image: "/Images/Features/pancakes.png",
+    time: "20 minutes",
+    type: "instructions",
+  },
+  {
+    title: "Spaghetti",
+    description: "Colorful and fluffy pancakes perfect for breakfast",
+    image: "/Images/Features/pancakes.png",
+    time: "20 minutes",
+    type: "instructions",
+  },
+  {
+    title: "Marcaroni And Cheese",
+    description: "Colorful and fluffy pancakes perfect for breakfast",
+    image: "/Images/Features/pancakes.png",
+    time: "20 minutes",
+    type: "instructions",
+  },
+  {
+    title: "sloppy joe",
     description: "Colorful and fluffy pancakes perfect for breakfast",
     image: "/Images/Features/pancakes.png",
     time: "20 minutes",

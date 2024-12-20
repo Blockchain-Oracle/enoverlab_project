@@ -1,3 +1,9 @@
+"use client";
+import { CarouselFeature } from "@/app/(marketing)/_components/CarouselFeature";
+import FeatureCard, {
+  featureCardProperties,
+} from "@/app/(marketing)/_components/FeatureCard";
+import BlurFade from "@/components/ui/blur-fade";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
@@ -7,23 +13,43 @@ export default function FeaturedRecipe() {
       <h1 className="mb-8 text-center text-3xl font-bold tracking-tight text-green">
         Featured Recipe
       </h1>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
+      <div className="grid grid-cols-3 gap-4 md:grid-cols-4">
         {FeaturesProperties.map((feature, index) => (
-          <Card key={index} className="p-4">
-            <FeatureRecipeButton
-              name={feature.name}
-              className="h-full w-full"
-            />
-          </Card>
+          <FeatureRecipeButton
+            name={feature.name}
+            key={feature.name}
+            className={`h-full w-full rounded-full px-7 ${feature.className}`}
+          />
+        ))}
+      </div>
+
+      <div className="mt-12 block sm:hidden">
+        <CarouselFeature>
+          {featureCardProperties.map((card) => (
+            <FeatureCard key={card.image} {...card} />
+          ))}
+        </CarouselFeature>
+      </div>
+      <div className="mt-12 hidden gap-6 py-8 sm:grid sm:grid-cols-2 lg:grid-cols-3">
+        {featureCardProperties.map((card, idx) => (
+          <BlurFade
+            key={card.image}
+            delay={0.15 + idx * 0.1}
+            inView
+            className="h-full"
+          >
+            <FeatureCard {...card} />
+          </BlurFade>
         ))}
       </div>
     </section>
   );
 }
 
-const FeaturesProperties: { name: string }[] = [
+const FeaturesProperties: { name: string; className?: string }[] = [
   {
     name: "5 Ingredients",
+    className: "bg-green",
   },
   {
     name: "Budget",

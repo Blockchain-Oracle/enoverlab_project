@@ -11,13 +11,14 @@ export default function Recipepage() {
   return (
     <>
       <RecipeHero />
+
       <Trending />
       <FeaturedRecipe />
 
       <Regions />
       <Popular />
       <KidFavourite />
-      <div className="bg-[url('/Images/Features/Rectangle 171.png')] container mx-auto">
+      <div className="bg-[url('/Images/Features/Rectangle 171.png')] container mx-auto mt-5">
         <Resources />
       </div>
       <Footer />

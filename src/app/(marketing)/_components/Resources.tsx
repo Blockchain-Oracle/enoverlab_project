@@ -65,7 +65,7 @@ export default function Resources() {
           </DialogContent>
         </Dialog>
       </div>
-      <div className="mt-5 flex flex-col place-content-center">
+      <div className="mt-10 flex flex-col place-content-center">
         <h2 className="text-center text-2xl font-bold text-[#84C52A] md:text-3xl">
           Resources
         </h2>

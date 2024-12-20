@@ -1,8 +1,10 @@
+"use client";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import FeatureCard, {
   type FeatureCardProps,
 } from "@/app/(marketing)/_components/FeatureCard";
+import { CarouselFeature } from "@/app/(marketing)/_components/CarouselFeature";
+import BlurFade from "@/components/ui/blur-fade";
 
 export default function Regions() {
   return (
@@ -10,26 +12,43 @@ export default function Regions() {
       <h1 className="mb-8 text-center text-3xl font-bold tracking-tight text-green">
         Regional Cuisines
       </h1>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-5">
-        {RegionProperties.map((region, index) => (
-          <Card key={index} className="p-4">
-            <RegionButton name={region.name} className="h-full w-full" />
-          </Card>
+      <div className="grid grid-cols-3 gap-4 md:grid-cols-4">
+        {RegionProperties.map((feature, index) => (
+          <RegionButton
+            name={feature.name}
+            key={feature.name}
+            className={`h-full w-full rounded-full px-7 ${feature.className}`}
+          />
         ))}
       </div>
 
-      <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3">
-        {regionFeatureCards.map((card, index) => (
-          <FeatureCard key={index} {...card} />
+      <div className="mt-12 block sm:hidden">
+        <CarouselFeature>
+          {regionFeatureCards.map((card) => (
+            <FeatureCard key={card.image} {...card} />
+          ))}
+        </CarouselFeature>
+      </div>
+      <div className="mt-12 hidden gap-6 py-8 sm:grid sm:grid-cols-2 lg:grid-cols-3">
+        {regionFeatureCards.map((card, idx) => (
+          <BlurFade
+            key={card.image}
+            delay={0.15 + idx * 0.1}
+            inView
+            className="h-full"
+          >
+            <FeatureCard {...card} />
+          </BlurFade>
         ))}
       </div>
     </section>
   );
 }
 
-const RegionProperties: { name: string }[] = [
+const RegionProperties: { name: string; className?: string }[] = [
   {
     name: "Igbo",
+    className: "bg-green",
   },
   {
     name: "Yoruba",
@@ -73,9 +92,9 @@ export const RegionButton = ({
 
 const regionFeatureCards: FeatureCardProps[] = [
   {
-    title: "Jollof Rice",
-    description: "Classic Nigerian Jollof rice with smoky flavor and spices",
-    image: "/Images/Features/jollof-rice.png",
+    title: "Ewa Aganyin",
+    description: "Classic Nigerian Ewa Aganyin with smoky flavor and spices",
+    image: "/Images/Features/beans.png",
     time: "45 minutes",
     type: "recipe",
   },
@@ -90,6 +109,27 @@ const regionFeatureCards: FeatureCardProps[] = [
     title: "Pounded Yam",
     description: "Smooth and stretchy pounded yam served with choice of soup",
     image: "/Images/Features/pounded-yam.png",
+    time: "30 minutes",
+    type: "instructions",
+  },
+  {
+    title: "Ofada Rice ",
+    description: "locally made Ofada Rice ",
+    image: "/Images/Features/ofada-rice.png",
+    time: "30 minutes",
+    type: "instructions",
+  },
+  {
+    title: "Amala & Gbegiri Soup",
+    description: "Amala & Gbegiri Soup ",
+    image: "/Images/Features/amala.png",
+    time: "30 minutes",
+    type: "instructions",
+  },
+  {
+    title: "Moin Moin",
+    description: "Amala & Gbegiri Soup ",
+    image: "/Images/Features/Moin Moin.png",
     time: "30 minutes",
     type: "instructions",
   },
